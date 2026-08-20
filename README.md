@@ -47,7 +47,7 @@ Before deploying, ensure that the Supabase project contains the private `public.
 This path fits most Node-capable cloud platforms and Ubuntu virtual machines. Clone the repository, install dependencies, validate the build, then run the production server.
 
 ```bash
-git clone <YOUR_REPOSITORY_URL> osmora-capital
+git clone https://github.com/0xProfTrade/osmora-capital
 cd osmora-capital
 corepack enable
 corepack prepare pnpm@10.4.1 --activate
