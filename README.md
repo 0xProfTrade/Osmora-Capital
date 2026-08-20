@@ -150,7 +150,7 @@ Clone the code into an aaPanel web directory and build it as the application use
 
 ```bash
 cd /www/wwwroot
-git clone <YOUR_REPOSITORY_URL> osmora-capital
+git clone https://github.com/0xProfTrade/osmora-capital
 cd osmora-capital
 chown -R www:www /www/wwwroot/osmora-capital
 sudo -u www corepack enable
