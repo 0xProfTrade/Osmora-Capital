@@ -1,0 +1,26 @@
+# Project TODO
+
+- [x] Establish a monochromatic industrial design system with bold geometric layering, heavy sans-serif display typography, and spaced uppercase utility labels.
+- [x] Build the responsive public navigation, mobile menu, consistent Osmora Capital wordmark, and legal footer links.
+- [x] Display the exact brand name "Osmora Capital" consistently in all shared and page-level branding.
+- [x] Create the authority-led home page with hero messaging, investment-focus preview, proposition blocks, process overview, FAQ preview, and CTA paths.
+- [x] Build dedicated About, Focus Areas, Our Offer, FAQ, Blog, Contact Us, and legal-information routes.
+- [x] Add filter controls to the Blog grid for the four stated editorial content pillars.
+- [x] Add five interactive frontier-sector focus cards with accessible hover, keyboard, and tap behavior.
+- [x] Create proposal and contact forms with clear validation, confirmation feedback, and persistent database storage.
+- [x] Define the database schema, migrations, server-side persistence procedures, and owner-only review queries for submissions.
+- [x] Restrict submission review access to the project owner specifically, including coverage that denies all other authenticated users.
+- [x] Implement a fully gated partner portal with authenticated access only.
+- [x] Implement the strictly owner-only submissions review view for proposals and contact inquiries.
+- [x] Hide the review entry point and redirect non-owner authenticated users away from the review route.
+- [x] Write and run Vitest coverage for validation, submission persistence, and access-control behavior.
+- [x] Add an FAQ preview on the home page with a clear link to the full FAQ route.
+- [x] Expand intake validation tests to cover invalid email, missing required fields, and minimum message lengths.
+- [x] Verify responsive layouts, focus states, reduced-motion behavior, and visual hierarchy across key routes.
+- [x] Save a final project checkpoint after all checklist items are complete.
+- [x] Remove the Manus-based partner login entry points, authentication pages, protected portal routes, and owner review interface from the public site.
+- [x] Configure secure server-side Supabase credentials and create a private proposals table for direct submission persistence.
+- [x] Rewire proposal submission, validation, and tests to write directly to Supabase.
+- [x] Revalidate the revised public routes and save an updated project checkpoint.
+- [x] Verify every remaining public route after removing the portal and migrating proposals to Supabase.
+- [x] Add a neutral README with deployment instructions for generic cloud hosting, Railway, and aaPanel-managed servers, without hosting-platform attribution.

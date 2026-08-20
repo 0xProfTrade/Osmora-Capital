@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Space Grotesk", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --color-ink: #101010;
+  --color-charcoal: #1b1b1b;
+  --color-smoke: #353535;
+  --color-steel: #747474;
+  --color-silver: #bdbdbd;
+  --color-paper: #f2f2f0;
+  --color-signal: #ffffff;
+}
+
+@layer base {
+  * { @apply border-neutral-800; }
+  html { scroll-behavior: smooth; background: #101010; }
+  body { @apply m-0 bg-ink font-sans text-paper antialiased; }
+  button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+  button, a { @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white; }
+  input, select, textarea { @apply focus:border-white focus:outline-none focus:ring-1 focus:ring-white; }
+  ::selection { background: #fff; color: #101010; }
+}
+
+.grid-shell {
+  background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.noise-overlay::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: .14;
+  background-image: radial-gradient(rgba(255,255,255,.48) .55px, transparent .75px);
+  background-size: 5px 5px;
+  mix-blend-mode: soft-light;
+}
+
+.display-type { letter-spacing: -.075em; line-height: .88; }
+.label-type { font-family: "IBM Plex Mono", monospace; letter-spacing: .13em; text-transform: uppercase; }
+.industrial-link { position: relative; }
+.industrial-link::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 180ms cubic-bezier(.23,1,.32,1); }
+.industrial-link:hover::after { transform: scaleX(1); transform-origin: left; }
+.orbital-rotate { animation: orbital-spin 58s linear infinite; transform-origin: center; }
+
+@keyframes orbital-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

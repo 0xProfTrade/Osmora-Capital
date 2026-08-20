@@ -1,0 +1,17 @@
+import { useState } from "react";
+import { Link } from "wouter";
+import { ArrowUpRight } from "lucide-react";
+import { OrbitalNetwork } from "@/components/OrbitalNetwork";
+import { PublicLayout, SectionHeader } from "@/components/SiteLayout";
+import { sectors } from "@/content/site-data";
+
+export default function FundingFocusAreas() {
+  const [activeId, setActiveId] = useState("ai");
+  const active = sectors.find(sector => sector.id === activeId) ?? sectors[0];
+  return <PublicLayout>
+    <section className="grid-shell bg-ink px-5 py-20 lg:px-9 lg:py-28"><div className="mx-auto max-w-[1500px]"><p className="label-type text-[10px] text-white/55">Funding Focus Areas</p><h1 className="display-type mt-7 max-w-5xl text-6xl font-semibold sm:text-7xl lg:text-9xl">Five vectors of <span className="text-white/45">long-term change.</span></h1><p className="mt-10 max-w-2xl text-lg leading-8 text-white/65">We have sharpened our investment mandate around five sectors we believe will shape the future of Indonesia's economy and the world's.</p></div></section>
+    <section className="bg-charcoal px-5 py-20 lg:px-9 lg:py-28"><div className="mx-auto grid max-w-[1500px] items-center gap-10 lg:grid-cols-[1fr_1fr]"><div className="order-2 border border-white/15 p-6 sm:p-10 lg:order-1"><p className="label-type text-[10px] text-white/45">{active.number} / Selected Thesis</p><p className="mt-12 label-type text-[10px] text-white/55">{active.abbreviatedName}</p><h2 className="mt-4 text-5xl font-semibold tracking-[-.07em] sm:text-6xl">{active.name}</h2><p className="mt-8 max-w-xl text-lg leading-8 text-white/75">{active.thesis}</p><p className="mt-7 max-w-xl border-t border-white/15 pt-7 text-sm leading-7 text-white/55">{active.detail}</p></div><div className="order-1 lg:order-2"><p className="mb-6 text-center label-type text-[10px] text-white/45">Select a node to inspect the thesis</p><OrbitalNetwork activeId={activeId} onSelect={setActiveId} interactive /></div></div></section>
+    <section className="bg-paper px-5 py-20 text-ink lg:px-9 lg:py-28"><div className="mx-auto max-w-[1500px]"><SectionHeader light eyebrow="Mandate Overview" title={<>Parallel fields. <span className="text-ink/45">Shared discipline.</span></>} /><div className="mt-16 grid gap-px bg-ink/20 md:grid-cols-2">{sectors.map(sector => <button key={sector.id} onClick={() => { setActiveId(sector.id); window.scrollTo({ top: 420, behavior: "smooth" }); }} className="group bg-paper p-6 text-left transition hover:bg-ink hover:text-white"><div className="flex justify-between"><span className="label-type text-[10px] opacity-55">{sector.number}</span><span className="label-type text-[10px] opacity-55">{sector.abbreviatedName}</span></div><h2 className="mt-16 text-3xl font-semibold tracking-[-.06em]">{sector.name}</h2><p className="mt-5 max-w-xl text-sm leading-6 opacity-65">{sector.thesis}</p></button>)}</div></div></section>
+    <section className="bg-ink px-5 py-20 lg:px-9"><div className="mx-auto flex max-w-[1500px] flex-col justify-between gap-8 lg:flex-row lg:items-end"><h2 className="display-type max-w-3xl text-5xl font-semibold sm:text-6xl">Work in one of these fields?</h2><Link href="/submit-proposal" className="inline-flex items-center gap-2 bg-white px-5 py-4 label-type text-[11px] text-ink hover:bg-neutral-300">Submit a Proposal <ArrowUpRight size={15} /></Link></div></section>
+  </PublicLayout>;
+}
